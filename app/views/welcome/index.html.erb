@@ -1,0 +1,15 @@
+<h1>一行ブログ</h1>
+<hr>
+
+<ul>
+  <% @microposts.each do |mp| %>
+    <li>
+      <span style="font-weight: bold;"><%= mp.name %></span>
+      <%= truncate mp.body, :length => 10 %>
+      <span id="micropost_<%= mp.id %>">
+      <%= link_to 'いいね', post_likes_path(:micropost_id => mp.id), :method => :post, :remote => true %>
+      </span>
+      (<%= mp.post_likes.count %>)
+    </li>
+  <% end %>
+</ul>

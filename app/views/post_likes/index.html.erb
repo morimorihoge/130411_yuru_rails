@@ -1,0 +1,23 @@
+<h1>Listing post_likes</h1>
+
+<table>
+  <tr>
+    <th>Micropost</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @post_likes.each do |post_like| %>
+  <tr>
+    <td><%= post_like.micropost_id %></td>
+    <td><%= link_to 'Show', post_like %></td>
+    <td><%= link_to 'Edit', edit_post_like_path(post_like) %></td>
+    <td><%= link_to 'Destroy', post_like, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Post like', new_post_like_path %>
